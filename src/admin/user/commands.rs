@@ -63,12 +63,6 @@ pub(super) async fn create_user(
 		)));
 	}
 
-	if user_id.is_historical() {
-		return Ok(RoomMessageEventContent::text_plain(format!(
-			"User ID {user_id} does not conform to new Matrix identifier spec"
-		)));
-	}
-
 	let password = password.unwrap_or_else(|| utils::random_string(AUTO_GEN_PASSWORD_LENGTH));
 
 	// Create user
