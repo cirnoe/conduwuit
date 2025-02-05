@@ -1,18 +1,7 @@
 name: CI and Artifacts
 
 on:
-    pull_request:
-    push:
-        paths-ignore:
-          - '.gitlab-ci.yml'
-          - '.gitignore'
-          - 'renovate.json'
-          - 'debian/**'
-          - 'docker/**'
-        branches:
-            - main
-        tags:
-          - '*'
+ 
     # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
 
