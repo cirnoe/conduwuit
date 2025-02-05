@@ -9,7 +9,6 @@ use std::sync::OnceLock;
 
 static BRANDING: &str = "conduit";
 static SEMANTIC: &str = env!("CARGO_PKG_VERSION");
-static VER: &str = "0.9.0";
 
 static VERSION: OnceLock<String> = OnceLock::new();
 static USER_AGENT: OnceLock<String> = OnceLock::new();
@@ -19,7 +18,7 @@ static USER_AGENT: OnceLock<String> = OnceLock::new();
 pub fn name() -> &'static str { BRANDING }
 
 #[inline]
-pub fn version() -> &'static str { VER }
+pub fn version() -> &'static str { VERSION.get_or_init(init_version) }
 
 #[inline]
 pub fn user_agent() -> &'static str { USER_AGENT.get_or_init(init_user_agent) }
